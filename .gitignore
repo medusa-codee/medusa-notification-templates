@@ -6,9 +6,9 @@ yarn.lock
 # Build outputs
 dist/
 build/
-*.js
 *.js.map
 *.d.ts
+# Note: *.js is not ignored because scripts/watch.js is part of the source code
 
 # IDE
 .vscode/
