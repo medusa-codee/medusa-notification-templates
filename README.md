@@ -1,6 +1,6 @@
-# Notification Templates for Medusa.js
+# Notification Templates 
 
-A collection of ready-to-use email templates for Medusa.js using MJML and a reusable component system.
+A collection of ready-to-use email templates  using MJML and a reusable component system.
 
 ## Table of Contents
 
@@ -27,29 +27,45 @@ A collection of ready-to-use email templates for Medusa.js using MJML and a reus
 
 ## Installation
 
-### Requirements
+### Install from NPM
 
 ```bash
-npm install mjml
-npm install --save-dev @types/mjml
+npm install @codee_team/medusa-notification-templates
 ```
 
-### Installation in Medusa.js Project
+### Requirements
 
-1. Copy the `templates` folder to your notification module
-2. Import templates where you send notifications
+The package includes `mjml` as a dependency, so you don't need to install it separately.
+
+### Usage in Medusa.js Project
+
+After installation, import templates where you send notifications:
 
 ```typescript
-import { renderTemplate } from "./templates/emails";
+import { renderTemplate } from "@codee_team/medusa-notification-templates";
 ```
+
+### Legacy Installation (Copy Method)
+
+If you prefer to copy the templates folder directly:
+
+1. Copy the `templates` folder to your notification module
+2. Install dependencies:
+   ```bash
+   npm install mjml
+   npm install --save-dev @types/mjml
+   ```
+3. Import templates:
+   ```typescript
+   import { renderTemplate } from "./templates/emails";
+   ```
 
 ## Quick Start
 
 ### Basic Usage with Unified API
 
 ```typescript
-import { renderTemplate } from "./templates/emails";
-import { ContactFormTemplateData } from "./templates/emails/contact-form/types";
+import { renderTemplate, ContactFormTemplateData } from "@codee_team/medusa-notification-templates";
 
 const templateName = "contact-form";
 
@@ -89,7 +105,7 @@ import {
   buttonSection,
   richTextSection,
   Theme,
-} from "./templates/shared/components";
+} from "@codee_team/medusa-notification-templates";
 ```
 
 ### headerSection(text, options?)
@@ -153,7 +169,7 @@ Templates support multiple languages through the i18n system. Each template has 
 ### Using Different Languages
 
 ```typescript
-import { renderTemplate } from "./templates/emails";
+import { renderTemplate } from "@codee_team/medusa-notification-templates";
 
 // Polish (default)
 const { html: htmlPL } = renderTemplate("contact-form", data);
@@ -211,7 +227,7 @@ export type Locale = "pl" | "en" | "de";
 You can customize colors, fonts, and other styles by modifying `shared/theme/presets/default/index.ts` or by passing a custom theme to template functions:
 
 ```typescript
-import { Theme } from "./templates/shared/theme";
+import { Theme } from "@codee_team/medusa-notification-templates";
 
 const customTheme: Theme = {
   colors: {
@@ -472,7 +488,7 @@ export function renderTemplate(
 ### Step 7: Use in Your Code
 
 ```typescript
-import { renderTemplate } from "./templates/emails";
+import { renderTemplate } from "@codee_team/medusa-notification-templates";
 
 const { html, text } = renderTemplate("my-new-template", data, { locale: "pl" });
 ```
@@ -494,7 +510,7 @@ See implementation in `emails/order-created/` - a more complex template with pro
 Escapes HTML in text to prevent XSS attacks. Available from `shared/utils`:
 
 ```typescript
-import { escapeHtml } from "./templates/shared/utils";
+import { escapeHtml } from "@codee_team/medusa-notification-templates";
 
 const safeText = escapeHtml("<script>alert('xss')</script>");
 // Returns: "&lt;script&gt;alert(&#039;xss&#039;)&lt;/script&gt;"

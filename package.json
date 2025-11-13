@@ -1,0 +1,52 @@
+{
+  "name": "@codee_team/medusa-notification-templates",
+  "version": "1.0.0",
+  "description": "A collection of ready-to-use email templates using MJML and a reusable component system",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "templates",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "public-local": "npm run build && yalc push",
+    "public-local:force": "npm run build && yalc push --force",
+    "publish": "dotenv -- npm publish --access public"
+  },
+  "keywords": [
+    "email",
+    "templates",
+    "mjml",
+    "notifications",
+    "email-templates"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "mjml": "^4.15.3"
+  },
+  "devDependencies": {
+    "@types/mjml": "^4.7.4",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "peerDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
+
