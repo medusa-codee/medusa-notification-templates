@@ -1,6 +1,6 @@
 {
   "name": "@codee_team/medusa-notification-templates",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A collection of ready-to-use email templates using MJML and a reusable component system",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
